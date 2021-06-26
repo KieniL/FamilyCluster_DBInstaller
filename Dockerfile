@@ -16,8 +16,14 @@ ENV CERT_PASS=tmp
 
 
 
-COPY entrypoint.sh entrypoint.sh
-COPY init.sql init.sql
+RUN groupadd familygroup && useradd familyuser -G familygroup
 
+
+COPY entrypoint.sh entrypoint.sh
+COPY --chown=familyuser init.sql init.sql
+
+RUN chmod 777 init.sql
+
+USER familyuser
 
 ENTRYPOINT ["/bin/bash", "entrypoint.sh"]

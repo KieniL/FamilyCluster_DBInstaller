@@ -17,4 +17,4 @@ sed -i "s/\$ANSPAR_PASS/$ANSPAR_PASS/" $TMP_FILE
 
 cat $TMP_FILE > $SQL_FILE
 
-mysql --host=$DB_HOST --port=$DB_PORT --user=$DB_ADMIN_USER --password=$DB_ADMIN_PASSWORD < init.sql
+mysql --host=$DB_HOST --port=$DB_PORT --user=$DB_ADMIN_USER --password=$DB_ADMIN_PASSWORD --wait-timeout=10 < init.sql

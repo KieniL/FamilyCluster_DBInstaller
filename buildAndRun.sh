@@ -15,7 +15,7 @@ export ANSPAR_PASS=ansparpass
 export CERT_DB=certdb
 export CERT_USER=certuser
 export CERT_PASS=certpass
-export ADD_DUMMYDATA=false
+export ADD_DUMMYDATA=true
 
 docker build -t $IMAGENAME .
 

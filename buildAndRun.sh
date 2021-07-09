@@ -15,6 +15,7 @@ export ANSPAR_PASS=ansparpass
 export CERT_DB=certdb
 export CERT_USER=certuser
 export CERT_PASS=certpass
+export ADD_DUMMYDATA=false
 
 docker build -t $IMAGENAME .
 
@@ -32,6 +33,7 @@ docker run -d  \
 --env CERT_DB=$CERT_DB \
 --env CERT_USER=$CERT_USER \
 --env CERT_PASS=$CERT_PASS \
+--env ADD_DUMMYDATA=$ADD_DUMMYDATA \
 --name $CONTAINERNAME $IMAGENAME
 
 docker logs -f $CONTAINERNAME

@@ -1,0 +1,1 @@
+INSERT INTO $ANSPAR_DB.category (description) VALUES ("test");

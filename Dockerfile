@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:8.0.26
 
 ENV DB_HOST=tmp
 ENV DB_PORT=1
@@ -15,17 +15,16 @@ ENV CERT_USER=tmp
 ENV CERT_PASS=tmp
 ENV ADD_DUMMYDATA=false
 
-
+WORKDIR /install
 
 RUN groupadd familygroup && useradd familyuser -G familygroup
 
 
-COPY entrypoint.sh entrypoint.sh
-COPY --chown=familyuser init.sql init.sql
-COPY --chown=familyuser dummydata.sql dummydata.sql
+COPY entrypoint.sh /install/entrypoint.sh
+COPY --chown=familyuser init.sql /install/init.sql
+COPY --chown=familyuser dummydata.sql /install/dummydata.sql
 
-RUN chmod 777 init.sql
-RUN chmod 777 dummydata.sql
+RUN chmod 777 init.sql && chmod 777 dummydata.sql
 
 
 USER familyuser

@@ -1,4 +1,4 @@
-FROM mysql:8.0.26
+FROM luke19/mysql-base-image:1627573675
 
 ENV DB_HOST=tmp
 ENV DB_PORT=1
@@ -17,16 +17,13 @@ ENV ADD_DUMMYDATA=false
 
 WORKDIR /install
 
-RUN groupadd familygroup && useradd familyuser -G familygroup
-
 
 COPY entrypoint.sh /install/entrypoint.sh
-COPY --chown=familyuser init.sql /install/init.sql
-COPY --chown=familyuser dummydata.sql /install/dummydata.sql
+COPY --chown=dbuser init.sql /install/init.sql
+COPY --chown=dbuser dummydata.sql /install/dummydata.sql
 
 RUN chmod 777 init.sql && chmod 777 dummydata.sql
 
 
-USER familyuser
 
 ENTRYPOINT ["/bin/bash", "entrypoint.sh"]

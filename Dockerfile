@@ -1,4 +1,11 @@
-FROM luke19/mysql-base-image:1629007085
+FROM luke19/mysql-base-image:1629521420
+
+LABEL maintainer="KieniL"
+LABEL name="dbinstaller"
+LABEL version="1.0.0"
+LABEL author="KieniL"
+LABEL contact="https://github.com/KieniL/FamilyCluster_DBInstaller/issues"
+LABEL documentation="https://github.com/KieniL/FamilyCluster_DBInstaller"
 
 ENV ADD_DUMMYDATA=false
 

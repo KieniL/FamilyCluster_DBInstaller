@@ -8,6 +8,8 @@ LABEL contact="https://github.com/KieniL/FamilyCluster_DBInstaller/issues"
 LABEL documentation="https://github.com/KieniL/FamilyCluster_DBInstaller"
 
 ENV ADD_DUMMYDATA=false
+ENV DB_HOST=tmp
+ENV DB_PORT=tmp
 
 VOLUME /etc/config
 

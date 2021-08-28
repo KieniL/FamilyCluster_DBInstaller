@@ -3,19 +3,20 @@
 
 # Read the content of the secret into variables for usage
 # Run this in the shell inside the container
-AUTH_DB=$(</etc/config/AUTH_DB)
-CERT_DB=$(</etc/config/CERT_DB)
-ANSPAR_DB=$(</etc/config/ANSPAR_DB)
-AUTH_USER=$(</etc/config/AUTH_USER)
-AUTH_PASS=$(</etc/config/AUTH_PASS)
-CERT_USER=$(</etc/config/CERT_USER)
-CERT_PASS=$(</etc/config/CERT_PASS)
-ANSPAR_USER=$(</etc/config/ANSPAR_USER)
-ANSPAR_PASS=$(</etc/config/ANSPAR_PASS)
-DB_HOST=$(</etc/config/DB_HOST)
-DB_PORT=$(</etc/config/DB_PORT)
-DB_ADMIN_USER=$(</etc/config/DB_ADMIN_USER)
-DB_ADMIN_PASSWORD=$(</etc/config/DB_ADMIN_PASSWORD)
+AUTH_DB=$(</vault/secrets/auth_db)
+CERT_DB=$(</vault/secrets/cert_db)
+ANSPAR_DB=$(</vault/secrets/anspar_db)
+
+AUTH_USER=$(</vault/secrets/auth_user)
+CERT_USER=$(</vault/secrets/cert_user)
+ANSPAR_USER=$(</vault/secrets/anspar_user)
+
+AUTH_PASS=$(</vault/secrets/auth_pass)
+CERT_PASS=$(</vault/secrets/cert_pass)
+ANSPAR_PASS=$(</vault/secrets/anspar_pass)
+
+DB_ADMIN_USER=$(</vault/secrets/db_admin_user)
+DB_ADMIN_PASSWORD=$(</vault/secrets/db_admin_password)
 
 export SQL_INIT_FILE="init.sql"
 export TMP_INIT_FILE="/tmp/init.sql"
